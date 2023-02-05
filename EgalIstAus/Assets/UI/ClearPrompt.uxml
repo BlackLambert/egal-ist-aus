@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/PromptStyle.uss?fileID=7433441132597879392&amp;guid=73b4f8804b20a044a9339db2475525eb&amp;type=3#PromptStyle" />
+    <ui:VisualElement name="Hook" class="Background" style="width: 100%; align-items: center; justify-content: center; height: 100%; left: 0; top: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.4);">
+        <ui:VisualElement name="Background" style="flex-shrink: 0; width: 300px; height: 200px; background-color: rgb(204, 204, 204); align-items: center; justify-content: flex-start; border-left-width: 3px; border-right-width: 3px; border-top-width: 3px; border-bottom-width: 3px; border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-left-color: rgb(214, 0, 0); border-right-color: rgb(214, 0, 0); border-top-color: rgb(214, 0, 0); border-bottom-color: rgb(214, 0, 0);">
+            <ui:Label tabindex="-1" text="This is the text of the new prompt" display-tooltip-when-elided="true" name="PromptText" enable-rich-text="true" style="flex-grow: 1; -unity-text-align: middle-center; margin-top: 10px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; color: rgb(26, 26, 26); font-size: 18px; white-space: normal;" />
+            <ui:VisualElement name="ButtonContainer" style="flex-direction: row; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; width: 100%; justify-content: center;">
+                <ui:Button tabindex="-1" text="Cancel" display-tooltip-when-elided="true" name="CancelButton" />
+                <ui:Button tabindex="-1" text="OK" display-tooltip-when-elided="true" name="SubmitButton" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

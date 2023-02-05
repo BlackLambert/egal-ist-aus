@@ -1,9 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Style.uss?fileID=7433441132597879392&amp;guid=1f633929cab94b145a45ad9ebe1e3a9d&amp;type=3#Style" />
     <ui:VisualElement name="Background" class="background">
-        <ui:TextField picking-mode="Ignore" text="New Entry" name="EntryNameInput" class="EntryInput" />
-        <ui:VisualElement name="AddEntryButtonContainer" class="AddEntryButtonContainer">
-            <ui:Button tabindex="-1" text="Add Entry" display-tooltip-when-elided="true" name="AddEntryButton" class="AddEntryButton" />
+        <ui:TextField picking-mode="Ignore" name="EntryNameInput" class="EntryInput" />
+        <ui:VisualElement name="AddEntryButtonContainer" class="AddEntryButtonContainer" style="flex-direction: row; margin-top: 0;">
+            <ui:Button tabindex="-1" text="Add Entry" display-tooltip-when-elided="true" name="AddEntryButton" class="AddEntryButton" style="flex-grow: 1;" />
+            <ui:Button tabindex="-1" text="Clear &#10;Entries" display-tooltip-when-elided="true" name="ClearEntriesButton" />
         </ui:VisualElement>
         <ui:Button tabindex="-1" text="Click to Choose Random" display-tooltip-when-elided="true" name="ChooseRandomButton" class="ChooseRandomButton" />
     </ui:VisualElement>

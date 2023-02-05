@@ -33,21 +33,27 @@ namespace Application
             return selection[index];
         }
 
-        public bool HasEntries()
+		public bool HasEntries()
 		{
             return _entries.Count > 0;
         }
 
-		void IDataContainer<EntriesData>.Set(EntriesData data)
+        public void Clear()
+        {
+            _entries.Clear();
+            OnChange?.Invoke();
+        }
+
+        public EntriesData Get()
+        {
+            EntryData[] entryDatas = _entries.Select(entry => new EntryData { Name = entry.Name }).ToArray();
+            return new EntriesData { Entries = entryDatas };
+        }
+
+        void IDataContainer<EntriesData>.Set(EntriesData data)
 		{
             _entries.Clear();
             _entries.AddRange(data.Entries.Select(entry => new Entry { Name = entry.Name }));
-        }
-
-		public EntriesData Get()
-		{
-            EntryData[] entryDatas = _entries.Select(entry => new EntryData { Name = entry.Name }).ToArray();
-            return new EntriesData { Entries = entryDatas };
         }
 	}
 }

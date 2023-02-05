@@ -26,20 +26,15 @@ namespace Application
 			ValidateInput();
 			_button.clicked += AddEntry;
 			_input.RegisterValueChangedCallback(CheckButtonInteractable);
+			_input.RegisterCallback<NavigationSubmitEvent>(OnSubmit);
 			CheckButtonInteractable();
 		}
 
 		private void OnDestroy()
         {
-            if(_button != null)
-			{
-                _button.clicked -= AddEntry;
-            }
-
-			if(_input != null)
-			{
-				_input.UnregisterValueChangedCallback(CheckButtonInteractable);
-			}
+            _button.clicked -= AddEntry;
+			_input.UnregisterValueChangedCallback(CheckButtonInteractable);
+			_input.UnregisterCallback<NavigationSubmitEvent>(OnSubmit);
 		}
 
 		private void ValidateInput()
@@ -70,8 +65,15 @@ namespace Application
 
 		private void AddEntry()
 		{
-			_entriesService.Add(_input.value);
+			if (!string.IsNullOrEmpty(_input.value))
+				_entriesService.Add(_input.value);
+			_input.SelectNone();
 			_input.value = string.Empty;
+		}
+
+		private void OnSubmit(NavigationSubmitEvent evt)
+		{
+			AddEntry();
 		}
 	}
 }

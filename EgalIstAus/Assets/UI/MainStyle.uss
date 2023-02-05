@@ -9,14 +9,13 @@
     background-color: rgb(26, 26, 26);
     -unity-font-style: bold;
     margin-left: 0;
-    margin-right: 0;
+    margin-right: 10px;
     margin-top: 0;
     margin-bottom: 0;
 }
 
 .ChooseRandomButton {
     flex-grow: 1;
-    background-color: rgba(88, 88, 88, 0);
     border-left-color: rgba(36, 36, 36, 0);
     border-right-color: rgba(36, 36, 36, 0);
     border-top-color: rgba(36, 36, 36, 0);
@@ -36,8 +35,8 @@
 .EntryInput TextInput {
     background-color: rgb(204, 204, 204);
     -unity-text-align: middle-center;
-    font-size: 24px;
-    color: rgba(51, 51, 51, 255);
+    font-size: 18px;
+    color: rgb(51, 51, 51);
 }
 
 .AddEntryButtonContainer {
@@ -51,5 +50,18 @@
 VisualElement {
     -unity-font: url('project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#Arial');
     font-size: 24px;
-    color: rgba(229, 229, 229, 255);
+    color: rgb(229, 229, 229);
+}
+
+Button {
+    background-color: rgba(88, 88, 88, 0);
+}
+
+#ClearEntriesButton {
+    background-color: rgb(221, 16, 16);
+    font-size: 14px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
