@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -16,7 +17,7 @@ namespace Application
 		private Button _button;
 		private Button _labelButton;
 		private EntriesService _entriesService;
-		private string _formerEntry;
+		private Entry _formerEntry;
 
 		private void Start()
 		{
@@ -56,8 +57,8 @@ namespace Application
 		{
 			if(_entriesService.HasEntries())
 			{
-				string newEntry = _entriesService.GetRandom(_formerEntry);
-				_labelButton.text = newEntry;
+				Entry newEntry = _entriesService.GetRandom(new List<Entry> { _formerEntry });
+				_labelButton.text = newEntry.Name;
 				_formerEntry = newEntry;
 			}
 		}
