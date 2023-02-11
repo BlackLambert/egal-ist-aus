@@ -1,6 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,7 +8,7 @@ namespace Application
     public class RandomColorChangeButton : MonoBehaviour
     {
         [SerializeField]
-        private UIDocument _document;
+        private BaseUI _ui;
         [SerializeField]
         private string _buttonID;
         [SerializeField]
@@ -20,14 +19,13 @@ namespace Application
         private Button _button;
 		private VisualElement _element;
 		private System.Random _random;
+		private Color currentColor = Color.black;
 
 		private void Start()
 		{
 			_random = new System.Random();
-			_button = _document.rootVisualElement.Q<Button>(_buttonID);
-			_element = _document.rootVisualElement.Q<VisualElement>(_elementToColorID);
-			ValidateButtonExists();
-			ValidateElementExists();
+			_button = _ui.Q<Button>(_buttonID);
+			_element = _ui.Q<VisualElement>(_elementToColorID);
 			_button.clicked += ChooseRandom;
 		}
 
@@ -41,25 +39,10 @@ namespace Application
 
 		private void ChooseRandom()
 		{
-			int index = _random.Next(_colors.Count);
-			Color color = _colors[index];
-			_element.style.backgroundColor = color;
-		}
-
-		private void ValidateElementExists()
-		{
-			if (_element == null)
-			{
-				throw new ArgumentException($"Button with ID {_elementToColorID} not found");
-			}
-		}
-
-		private void ValidateButtonExists()
-		{
-			if (_button == null)
-			{
-				throw new ArgumentException($"Button with ID {_buttonID} not found");
-			}
+			List<Color> colors = _colors.Where(color => color != currentColor).ToList();
+			int index = _random.Next(colors.Count);
+			currentColor = colors[index];
+			_element.style.backgroundColor = currentColor;
 		}
 	}
 }
