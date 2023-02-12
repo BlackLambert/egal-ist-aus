@@ -41,6 +41,8 @@ namespace Application
 
 		public void SetContent(ContentUI content)
 		{
+			if (_currentContent != null)
+				Destroy(_currentContent.RootTransform.gameObject);
 			_contentHook.Clear();
 			_currentContent = content;
 			_currentContent.SetParent(_contentHook);

@@ -8,31 +8,44 @@ namespace Application
     public class ListsService : MonoBehaviour, IDataContainer<ListsData>
     {
         public event Action OnChange;
+        public event Action<EntryList> OnAdded;
         public EntryList CurrentList { get; private set; }
         public string CurrentListName => CurrentList?.Name ?? string.Empty;
 
-        private List<EntryList> _lists = new List<EntryList>();
+        private Dictionary<string, EntryList> _nameToList = new Dictionary<string, EntryList>();
+        public IReadOnlyCollection<EntryList> Lists => _nameToList.Values;
 
 		public void Add(string name)
         {
-            _lists.Add(new EntryList { Name = name });
+            EntryList list = new EntryList { Name = name };
+            _nameToList.Add(name, list);
             OnChange?.Invoke();
+            OnAdded?.Invoke(list);
         }
 
         public bool HasLists()
         {
-            return _lists.Count > 0;
+            return _nameToList.Count > 0;
+        }
+
+        public bool HasList(string name)
+        {
+            return _nameToList.ContainsKey(name);
+        }
+
+        public void SetCurrentList(string name)
+		{
+            CurrentList = _nameToList[name];
         }
 
 		void IDataContainer<ListsData>.Set(ListsData data)
 		{
-            _lists.Clear();
-            _lists.AddRange(data.Lists.Select( list => new EntryList { Name = list.Name }));
+            _nameToList = data.Lists.Select( list => new EntryList { Name = list.Name }).ToDictionary(list => list.Name);
         }
 
 		ListsData IDataContainer<ListsData>.Get()
 		{
-            List<ListData> listsData = _lists.Select(list => new ListData { Name = list.Name }).ToList();
+            List<ListData> listsData = _nameToList.Values.Select(list => new ListData { Name = list.Name }).ToList();
             return new ListsData { Lists = listsData };
 		}
 

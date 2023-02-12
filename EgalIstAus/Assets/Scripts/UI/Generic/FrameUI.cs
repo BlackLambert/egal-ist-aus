@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 namespace Application
 {
-	public abstract class FrameUI : BaseUI
+	public class FrameUI : BaseUI
 	{
 		[SerializeField]
 		private UIDocument _uiDocument;
@@ -17,6 +17,11 @@ namespace Application
 		protected virtual void Awake()
 		{
 			instances = new BasicInstancesContainer();
+		}
+
+		protected virtual void Reset()
+		{
+			_uiDocument = GetComponent<UIDocument>();
 		}
 	}
 }

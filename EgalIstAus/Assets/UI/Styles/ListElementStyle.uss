@@ -1,0 +1,14 @@
+.list-element {
+    background-color: rgba(0, 0, 0, 0.2);
+    flex-direction: row;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.list-element-button {
+    flex-grow: 1;
+    flex-shrink: 0;
+    align-items: flex-start;
+}
