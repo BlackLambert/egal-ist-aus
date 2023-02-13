@@ -1,0 +1,14 @@
+#RemoveButton {
+    background-color: rgba(166, 0, 0, 255);
+}
+
+#ListNameLabel {
+    flex-grow: 1;
+    flex-shrink: 0;
+    -unity-text-align: upper-left;
+}
+
+#SelectListButton {
+    padding-top: 0;
+    padding-bottom: 0;
+}

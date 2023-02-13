@@ -19,7 +19,7 @@ namespace Application
 			base.Start();
 		}
 
-		protected override IDataContainer<EntriesData> FindContainer()
+		protected override DataContainer<EntriesData> FindContainer()
 		{
 			return FindObjectOfType<EntriesService>();
 		}

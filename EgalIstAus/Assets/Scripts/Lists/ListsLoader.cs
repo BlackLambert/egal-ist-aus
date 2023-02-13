@@ -9,7 +9,7 @@ namespace Application
 
 		protected override string FilePath => fileLocation.FilePath;
 
-		protected override IDataContainer<ListsData> FindContainer()
+		protected override DataContainer<ListsData> FindContainer()
 		{
 			return FindObjectOfType<ListsService>();
 		}

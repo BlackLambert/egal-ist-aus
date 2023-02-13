@@ -5,22 +5,37 @@ using UnityEngine;
 
 namespace Application
 {
-    public class EntriesService : MonoBehaviour, IDataContainer<EntriesData>
+    public class EntriesService : MonoBehaviour, DataContainer<EntriesData>, ElementsContainer<Entry>
     {
         public event Action OnChange;
+        public event Action<Entry> OnAdded;
+		public event Action<Entry> OnRemoved;
 
-        private List<Entry> _entries = new List<Entry>();
+		private List<Entry> _entries = new List<Entry>();
         private System.Random _random;
+
+		IReadOnlyCollection<Entry> ElementsContainer<Entry>.Elements => _entries;
+
 
 		private void Start()
 		{
             _random = new System.Random();
         }
 
-		public void Add(string entry)
+		public void Add(string entryName)
 		{
-            _entries.Add(new Entry { Name = entry });
+            Entry entry = new Entry { Name = entryName };
+            _entries.Add(entry);
             OnChange?.Invoke();
+            OnAdded?.Invoke(entry);
+        }
+
+		public void Remove(string entryName)
+		{
+            Entry entry = _entries.First(element => element.Name == entryName);
+            _entries.Remove(entry);
+            OnChange?.Invoke();
+            OnRemoved?.Invoke(entry);
         }
 
         public Entry GetRandom(IEnumerable<Entry> formerEntries = null)
@@ -50,7 +65,7 @@ namespace Application
             return new EntriesData { Entries = entryDatas };
         }
 
-        void IDataContainer<EntriesData>.Set(EntriesData data)
+        void DataContainer<EntriesData>.Set(EntriesData data)
 		{
             _entries.Clear();
             _entries.AddRange(data.Entries.Select(entry => new Entry { Name = entry.Name }));

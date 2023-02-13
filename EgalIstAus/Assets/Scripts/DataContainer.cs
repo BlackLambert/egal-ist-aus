@@ -2,7 +2,7 @@ using System;
 
 namespace Application
 {
-    public interface IDataContainer<TData>
+    public interface DataContainer<TData>
     {
         event Action OnChange;
         void Set(TData data);

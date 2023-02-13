@@ -1,9 +1,11 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Styles/MainStyle.uss?fileID=7433441132597879392&amp;guid=564bc7a980218bb4e8ed5273d4230301&amp;type=3#MainStyle" />
     <Style src="project://database/Assets/UI/Styles/ListElementStyle.uss?fileID=7433441132597879392&amp;guid=42d1af1c2314d5e4d82d1dc520e43984&amp;type=3#ListElementStyle" />
+    <Style src="project://database/Assets/UI/Styles/ListOverviewElementStyle.uss?fileID=7433441132597879392&amp;guid=6186461ea2b01d54e813f4ce4be485f9&amp;type=3#ListOverviewElementStyle" />
     <ui:VisualElement name="ListElement" class="list-element" style="margin-bottom: 2px; margin-left: 2px; margin-right: 2px; margin-top: 2px;">
-        <ui:Button tabindex="-1" display-tooltip-when-elided="true" name="SelectListButton" class="clear-button list-element-button">
+        <ui:Button tabindex="-1" display-tooltip-when-elided="true" name="SelectListButton" class="clear-button list-element-button" style="flex-direction: row;">
             <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="ListNameLabel" />
+            <ui:Button tabindex="-1" text="X" display-tooltip-when-elided="true" name="RemoveButton" />
         </ui:Button>
     </ui:VisualElement>
 </ui:UXML>

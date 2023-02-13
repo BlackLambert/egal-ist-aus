@@ -5,15 +5,18 @@ using UnityEngine;
 
 namespace Application
 {
-    public class ListsService : MonoBehaviour, IDataContainer<ListsData>
+    public class ListsService : MonoBehaviour, DataContainer<ListsData>, ElementsContainer<EntryList>
     {
         public event Action OnChange;
         public event Action<EntryList> OnAdded;
-        public EntryList CurrentList { get; private set; }
+		public event Action<EntryList> OnRemoved;
+
+		public EntryList CurrentList { get; private set; }
         public string CurrentListName => CurrentList?.Name ?? string.Empty;
 
         private Dictionary<string, EntryList> _nameToList = new Dictionary<string, EntryList>();
         public IReadOnlyCollection<EntryList> Lists => _nameToList.Values;
+		IReadOnlyCollection<EntryList> ElementsContainer<EntryList>.Elements => _nameToList.Values;
 
 		public void Add(string name)
         {
@@ -21,6 +24,14 @@ namespace Application
             _nameToList.Add(name, list);
             OnChange?.Invoke();
             OnAdded?.Invoke(list);
+        }
+
+        public void Remove(string name)
+		{
+            EntryList list = _nameToList[name];
+            _nameToList.Remove(name);
+            OnChange?.Invoke();
+            OnRemoved?.Invoke(list);
         }
 
         public bool HasLists()
@@ -38,12 +49,12 @@ namespace Application
             CurrentList = _nameToList[name];
         }
 
-		void IDataContainer<ListsData>.Set(ListsData data)
+		void DataContainer<ListsData>.Set(ListsData data)
 		{
             _nameToList = data.Lists.Select( list => new EntryList { Name = list.Name }).ToDictionary(list => list.Name);
         }
 
-		ListsData IDataContainer<ListsData>.Get()
+		ListsData DataContainer<ListsData>.Get()
 		{
             List<ListData> listsData = _nameToList.Values.Select(list => new ListData { Name = list.Name }).ToList();
             return new ListsData { Lists = listsData };

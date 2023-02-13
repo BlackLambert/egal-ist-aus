@@ -8,7 +8,7 @@ namespace Application
     {
 		protected abstract string FilePath { get; }
 
-		private IDataContainer<TData> container;
+		private DataContainer<TData> container;
 
 		protected virtual void Start()
 		{
@@ -16,7 +16,7 @@ namespace Application
 			TryLoadData();
 		}
 
-		protected abstract IDataContainer<TData> FindContainer();
+		protected abstract DataContainer<TData> FindContainer();
 
 		private void TryLoadData()
 		{

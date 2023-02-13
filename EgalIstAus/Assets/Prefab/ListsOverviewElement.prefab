@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2819224272774915327}
   - component: {fileID: 8279408753811161411}
   - component: {fileID: 5650480382803959532}
+  - component: {fileID: 98820357341821288}
   m_Layer: 0
   m_Name: ListsOverviewElement
   m_TagString: Untagged
@@ -77,3 +78,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _element: {fileID: 2819224272774915327}
   _labelID: ListNameLabel
+--- !u!114 &98820357341821288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562219669930771915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 624489a01e6a1954fae86d7efb68dbed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ui: {fileID: 2819224272774915327}
+  _buttonID: RemoveButton
+  _element: {fileID: 2819224272774915327}
