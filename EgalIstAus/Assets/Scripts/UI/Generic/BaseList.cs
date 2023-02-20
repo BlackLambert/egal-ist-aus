@@ -34,9 +34,9 @@ namespace Application
         private VisualElement MakeElement()
         {
             TElementUI element = Instantiate(elementPrefab);
+            _elementsUI.Add(element);
             element.transform.SetParent(transform);
             element.Create(_ui.Frame);
-            _elementsUI.Add(element);
             return element.RootElement;
         }
     }

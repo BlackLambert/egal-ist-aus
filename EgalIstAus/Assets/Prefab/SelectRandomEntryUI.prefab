@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 693660446335834466}
   - component: {fileID: 5660069744361278259}
   - component: {fileID: -1196451867498878156}
+  - component: {fileID: 8724162239002516979}
   m_Layer: 0
   m_Name: SelectRandomEntryUI
   m_TagString: Untagged
@@ -70,3 +71,18 @@ MonoBehaviour:
   - {r: 0, g: 0.40929326, b: 0.5188679, a: 1}
   - {r: 0.4716981, g: 0, b: 0.4511896, a: 1}
   - {r: 0, g: 0.4811321, b: 0.4602133, a: 1}
+--- !u!114 &8724162239002516979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131704592964399227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d57c5fd35bec6e441b5ba17877856e99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ui: {fileID: 5660069744361278259}
+  _openListOverviewButtonPrefab: {fileID: 1621375763699216484, guid: 1f1a3d4d7971b4345967d612e60fd2dc, type: 3}
+  _openEntriesListButtonPrefab: {fileID: 3856749571309029712, guid: 52c67f57eeb512248ab7c0cdca3e1b62, type: 3}

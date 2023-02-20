@@ -41,7 +41,7 @@ TextField TextInput {
 }
 
 .background-gray {
-    background-color: rgb(128, 128, 128);
+    background-color: rgb(51, 51, 51);
 }
 
 .clear-button {

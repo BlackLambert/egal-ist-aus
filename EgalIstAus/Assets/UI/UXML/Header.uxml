@@ -1,11 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/HeaderStyle.uss?fileID=7433441132597879392&amp;guid=239919d76ef1dfe4ea418dcc7025e2cd&amp;type=3#HeaderSytyle" />
-    <Style src="project://database/Assets/UI/MainStyle.uss?fileID=7433441132597879392&amp;guid=564bc7a980218bb4e8ed5273d4230301&amp;type=3#MainStyle" />
+    <Style src="project://database/Assets/UI/Styles/HeaderStyle.uss?fileID=7433441132597879392&amp;guid=239919d76ef1dfe4ea418dcc7025e2cd&amp;type=3#HeaderStyle" />
+    <Style src="project://database/Assets/UI/Styles/MainStyle.uss?fileID=7433441132597879392&amp;guid=564bc7a980218bb4e8ed5273d4230301&amp;type=3#MainStyle" />
     <ui:VisualElement name="Header" class="header">
         <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="Title" class="headline" />
-        <ui:Button tabindex="-1" display-tooltip-when-elided="true" name="OpenEntriesListButton">
-            <ui:VisualElement name="ViewListButtonImage" class="button-image" />
-        </ui:Button>
-        <ui:Button tabindex="-1" text="L" display-tooltip-when-elided="true" name="OpenListsOverviewButton" />
+        <ui:VisualElement name="ButtonContainer" />
     </ui:VisualElement>
 </ui:UXML>

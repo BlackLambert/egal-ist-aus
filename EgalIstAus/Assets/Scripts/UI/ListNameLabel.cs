@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -18,7 +15,13 @@ namespace Application
 		private void Start()
 		{
 			_label = _element.Q<Label>(_labelID);
+			_element.OnListChanged += SetText;
 			SetText();
+		}
+
+		private void OnDestroy()
+		{
+			_element.OnListChanged -= SetText;
 		}
 
 		private void SetText()

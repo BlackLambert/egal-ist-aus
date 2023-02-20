@@ -17,9 +17,6 @@
     font-size: 18px;
 }
 
-#ViewListButtonImage {
-    background-image: url('project://database/Packages/com.unity.2d.animation/Editor/Assets/EditorIcons/Selected/d_Visibility_Tool@2x.png?fileID=2800000&guid=a9e89ee3f041fa5459a4e78b37d1e58e&type=3#d_Visibility_Tool@2x');
-    height: 15px;
-    width: 15px;
-    padding-top: 17px;
+#ButtonContainer {
+    flex-direction: row;
 }

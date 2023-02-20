@@ -30,17 +30,23 @@ namespace Application
         private void OnAdded(TElement element)
         {
             _elements.Add(element);
-            _list.RefreshItems();
+            RebuildList();
         }
 
-        private void OnRemoved(TElement element)
+		private void OnRemoved(TElement element)
         {
-            int index = _elements.IndexOf(element);
-            TElementUI elementUI = _elementsUI[index];
-            Destroy(elementUI.gameObject);
-            _elementsUI.RemoveAt(index);
             _elements.Remove(element);
-            _list.RefreshItems();
+            RebuildList();
+        }
+
+        private void RebuildList()
+        {
+			foreach (TElementUI elementUI in _elementsUI)
+			{
+                Destroy(elementUI.gameObject);
+            }
+            _elementsUI.Clear();
+            _list.Rebuild();
         }
     }
 }

@@ -3,10 +3,8 @@ using UnityEngine.UIElements;
 
 namespace Application
 {
-    public class OpenListOverviewButton : MonoBehaviour
-    {
-        [SerializeField]
-        private BaseUI _ui;
+    public class OpenListOverviewButton : ElementUI
+	{
         [SerializeField]
         private string _buttonID;
 		[SerializeField]
@@ -14,22 +12,22 @@ namespace Application
 
         private Button _button;
 
-		private void Start()
-		{
-            _button = _ui.Q<Button>(_buttonID);
-            _button.clicked += OnClick;
-        }
-
 		private void OnDestroy()
 		{
 			_button.clicked -= OnClick;
 		}
 
+		protected override void Init()
+		{
+			_button = Q<Button>(_buttonID);
+			_button.clicked += OnClick;
+		}
+
 		private void OnClick()
 		{
 			ListOverviewUI listOverview = Instantiate(_listOverviewPrefab);
-			listOverview.Create(_ui.Frame);
-			_ui.Instances.Get<ContentContainer>().SetContent(listOverview);
+			listOverview.Create(Frame);
+			Instances.Get<ContentContainer>().SetContent(listOverview);
 		}
 	}
 }
