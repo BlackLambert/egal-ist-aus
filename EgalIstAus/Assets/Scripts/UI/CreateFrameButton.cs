@@ -2,14 +2,14 @@ using UnityEngine;
 
 namespace Application
 {
-	public class OpenCreateListPopupButton : BaseButton
+	public class CreateFrameButton : BaseButton
 	{
 		[SerializeField]
-		private FrameUI _popupPrefab;
+		private FrameUI _prefab;
 
 		protected override void OnClick()
 		{
-			Instantiate(_popupPrefab);
+			Instantiate(_prefab);
 		}
 	}
 }

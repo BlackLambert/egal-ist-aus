@@ -5,4 +5,5 @@
         <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="Title" class="headline" />
         <ui:VisualElement name="ButtonContainer" />
     </ui:VisualElement>
+    <ui:VisualElement name="Separator" />
 </ui:UXML>

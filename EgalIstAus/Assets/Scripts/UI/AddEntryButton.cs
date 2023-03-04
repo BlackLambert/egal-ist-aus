@@ -1,15 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 namespace Application
 {
-	public class AddListButton : BaseButton
+    public class AddEntryButton : BaseButton
 	{
-		private ListsService _listsService;
-		private NewListValuesInput _valuesInput;
+		private EntriesService _entriesService;
+		private NewEntryValuesInput _valuesInput;
 
 		protected override void Start()
 		{
 			base.Start();
-			_listsService = FindObjectOfType<ListsService>();
-			_valuesInput = _ui.Instances.Get<NewListValuesInput>();
+			_entriesService = FindObjectOfType<EntriesService>();
+			_valuesInput = _ui.Instances.Get<NewEntryValuesInput>();
 			_valuesInput.OnIsValidChanged += CheckButtonEnabled;
 			CheckButtonEnabled();
 		}
@@ -17,12 +21,11 @@ namespace Application
 		protected override void OnDestroy()
 		{
 			base.OnDestroy();
-			_valuesInput.OnIsValidChanged -= CheckButtonEnabled;
 		}
 
 		protected override void OnClick()
 		{
-			_listsService.Add(_valuesInput.Name);
+			_entriesService.Add(_valuesInput.Name);
 			CheckButtonEnabled();
 		}
 

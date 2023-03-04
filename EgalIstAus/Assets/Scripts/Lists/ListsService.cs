@@ -8,6 +8,7 @@ namespace Application
     public class ListsService : MonoBehaviour, DataContainer<ListsData>, ElementsContainer<EntryList>
     {
         public event Action OnChange;
+        public event Action OnCurrentChange;
         public event Action<EntryList> OnAdded;
 		public event Action<EntryList> OnRemoved;
 
@@ -47,9 +48,15 @@ namespace Application
         public void SetCurrentList(string name)
 		{
             CurrentList = _nameToList[name];
+            OnCurrentChange?.Invoke();
         }
 
-		void DataContainer<ListsData>.Set(ListsData data)
+        void DataContainer<ListsData>.SetDefault()
+        {
+            _nameToList.Clear();
+        }
+
+        void DataContainer<ListsData>.Set(ListsData data)
 		{
             _nameToList = data.Lists.Select( list => new EntryList { Name = list.Name }).ToDictionary(list => list.Name);
         }
@@ -59,6 +66,5 @@ namespace Application
             List<ListData> listsData = _nameToList.Values.Select(list => new ListData { Name = list.Name }).ToList();
             return new ListsData { Lists = listsData };
 		}
-
 	}
 }

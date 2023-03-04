@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Application
 {
-    public class SelectRandomEntryUIButtonAdder : HeaderButtonsAdder
+    public class SelectRandomEntryHeaderButtonAdder : HeaderButtonsAdder
 	{
 		[SerializeField]
 		private OpenListOverviewButton _openListOverviewButtonPrefab;

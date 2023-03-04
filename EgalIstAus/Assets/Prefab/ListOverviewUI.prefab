@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ui: {fileID: 3924584012861103927}
   _buttonID: AddListButton
-  _popupPrefab: {fileID: 5438500339172819709, guid: 09cb10a7f2cfbe647a9894df1f79d197, type: 3}
+  _prefab: {fileID: 5438500339172819709, guid: 09cb10a7f2cfbe647a9894df1f79d197, type: 3}
 --- !u!114 &473930311095130692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,5 +76,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _elementHeight: 48
   _ui: {fileID: 3924584012861103927}
-  _elementPrefab: {fileID: 2819224272774915327, guid: 0a5770adc02bbf74bac7a01b5e4e29b0, type: 3}
   _listID: ListView
+  _elementPrefab: {fileID: 2819224272774915327, guid: 0a5770adc02bbf74bac7a01b5e4e29b0, type: 3}

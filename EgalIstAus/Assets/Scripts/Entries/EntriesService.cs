@@ -48,9 +48,14 @@ namespace Application
             return selection[index];
         }
 
-		public bool HasEntries()
+        public bool HasEntries()
 		{
             return _entries.Count > 0;
+        }
+
+        public bool HasEntry(string name)
+        {
+            return _entries.Any(entry => entry.Name == name);
         }
 
         public void Clear()
@@ -70,5 +75,10 @@ namespace Application
             _entries.Clear();
             _entries.AddRange(data.Entries.Select(entry => new Entry { Name = entry.Name }));
         }
-	}
+
+        void DataContainer<EntriesData>.SetDefault()
+        {
+            _entries.Clear();
+        }
+    }
 }

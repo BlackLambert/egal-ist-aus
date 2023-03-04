@@ -15,7 +15,13 @@ namespace Application
 		protected override void Start()
 		{
 			listsService = FindObjectOfType<ListsService>();
+			listsService.OnCurrentChange += TryLoadData;
 			base.Start();
+		}
+
+		protected void OnDestroy()
+		{
+			listsService.OnCurrentChange -= TryLoadData;
 		}
 
 		protected override DataContainer<EntriesData> FindContainer()

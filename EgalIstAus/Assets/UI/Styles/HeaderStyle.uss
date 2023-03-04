@@ -1,5 +1,5 @@
 .header {
-    height: 60px;
+    height: 100px;
     padding-left: 15px;
     padding-right: 10px;
     padding-top: 20px;
@@ -7,7 +7,7 @@
     background-color: rgb(204, 204, 204);
     justify-content: flex-start;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .headline {
@@ -19,4 +19,12 @@
 
 #ButtonContainer {
     flex-direction: row;
+}
+
+#Separator {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 97px;
 }

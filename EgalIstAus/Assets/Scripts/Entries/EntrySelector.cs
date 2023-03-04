@@ -5,62 +5,51 @@ using UnityEngine.UIElements;
 
 namespace Application
 {
-    public class EntrySelector : MonoBehaviour
-    {
-		[SerializeField]
-		private UIDocument _document;
-		[SerializeField]
-        private string _buttonID;
+    public class EntrySelector : BaseButton
+	{
         [SerializeField]
-        private string _labelButtonID;
+        private string _buttonLabelId;
+		[SerializeField]
+		private string _noEntriesText = "Please add an entry";
 
-		private Button _button;
-		private Button _labelButton;
+		private Label _buttonLabel;
 		private EntriesService _entriesService;
 		private Entry _formerEntry;
 
-		private void Start()
+		protected override void Start()
 		{
-			_button = _document.rootVisualElement.Q<Button>(_buttonID);
-			_labelButton = _document.rootVisualElement.Q<Button>(_labelButtonID);
+			base.Start();
+			_buttonLabel = _ui.Q<Label>(_buttonLabelId);
 			_entriesService = FindObjectOfType<EntriesService>();
-			ValidateLabelButtonExists();
-			ValidateButtonExists();
-			_button.clicked += SelectRandom;
-		}
-
-		private void OnDestroy()
-		{
-			if (_button != null)
-			{
-				_button.clicked -= SelectRandom;
-			}
-		}
-
-		private void ValidateLabelButtonExists()
-		{
-			if (_labelButtonID == null)
-			{
-				throw new ArgumentException($"Button with ID {_labelButtonID} not found");
-			}
-		}
-
-		private void ValidateButtonExists()
-		{
-			if (_button == null)
-			{
-				throw new ArgumentException($"Button with ID {_buttonID} not found");
-			}
 		}
 
 		private void SelectRandom()
 		{
 			if(_entriesService.HasEntries())
 			{
-				Entry newEntry = _entriesService.GetRandom(new List<Entry> { _formerEntry });
-				_labelButton.text = newEntry.Name;
-				_formerEntry = newEntry;
+				SetEntry();
 			}
+			else
+			{
+				SetNoEntriesText();
+			}
+		}
+
+		protected override void OnClick()
+		{
+			SelectRandom();
+		}
+
+		private void SetEntry()
+		{
+			Entry newEntry = _entriesService.GetRandom(new List<Entry> { _formerEntry });
+			_buttonLabel.text = newEntry.Name;
+			_formerEntry = newEntry;
+		}
+
+		private void SetNoEntriesText()
+		{
+			_buttonLabel.text = _noEntriesText;
 		}
 	}
 }

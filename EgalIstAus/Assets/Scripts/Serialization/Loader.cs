@@ -18,10 +18,14 @@ namespace Application
 
 		protected abstract DataContainer<TData> FindContainer();
 
-		private void TryLoadData()
+		protected void TryLoadData()
 		{
 			if (!File.Exists(FilePath))
+			{
+				container.SetDefault();
 				return;
+			}
+
 			try
 			{
 				LoadData();
