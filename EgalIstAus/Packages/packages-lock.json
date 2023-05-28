@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.sbaier.unitydi": {
+      "version": "https://github.com/BlackLambert/unity-di-package.git#v1.2.8",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "nuget.moq": "1.0.0"
+      },
+      "hash": "dae263bc9c381503286dfb94ea076fe213726646"
+    },
     "com.unity.2d.animation": {
       "version": "8.0.3",
       "depth": 1,
@@ -215,6 +224,22 @@
       "dependencies": {
         "com.unity.ugui": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "nuget.castle-core": {
+      "version": "1.0.1",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "nuget.moq": {
+      "version": "1.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "nuget.castle-core": "1.0.1"
       },
       "url": "https://packages.unity.com"
     },

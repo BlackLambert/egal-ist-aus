@@ -1,8 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/MainStyle.uss?fileID=7433441132597879392&amp;guid=564bc7a980218bb4e8ed5273d4230301&amp;type=3#MainStyle" />
-    <Style src="project://database/Assets/UI/FrameStyle.uss?fileID=7433441132597879392&amp;guid=25e890afca8a6d7469b76a8b4a018697&amp;type=3#FrameStyle" />
-    <ui:VisualElement name="Background" class="background background-gray" style="height: 100%; width: 100%;">
-        <ui:VisualElement name="HeaderHook" />
-        <ui:VisualElement name="ContentContainer" />
-    </ui:VisualElement>
-</ui:UXML>

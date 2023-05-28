@@ -1,7 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/Styles/MainStyle.uss?fileID=7433441132597879392&amp;guid=564bc7a980218bb4e8ed5273d4230301&amp;type=3#MainStyle" />
-    <Style src="project://database/Assets/UI/Styles/OpenEntriesListButtonStyle.uss?fileID=7433441132597879392&amp;guid=2bd18b28e6e626f48bcb5dc003fe1d62&amp;type=3#OpenEntriesListButtonStyle" />
-    <ui:Button tabindex="-1" display-tooltip-when-elided="true" name="OpenEntriesListButton">
-        <ui:VisualElement name="ViewListButtonImage" class="button-image" />
-    </ui:Button>
-</ui:UXML>
