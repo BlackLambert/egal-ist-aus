@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace Application
 {
-	public class ListEntriesSelectionInstaller : MonoInstaller
+	public class ListEntriesSelectionInstaller
+		: MonoInstaller
 	{
 		[SerializeField]
 		private ListEntryView _listEntryPrefab;

@@ -8,6 +8,7 @@ namespace Application
     public class EntriesService : DataContainer<EntriesData>, ElementsContainer<Entry>, Injectable
     {
         public event Action OnChange;
+        public event Action OnEntriesSet;
         public event Action<Entry> OnAdded;
 		public event Action<Entry> OnRemoved;
 
@@ -35,6 +36,11 @@ namespace Application
 		public void Remove(string entryName)
 		{
             Entry entry = _entries.First(element => element.Name == entryName);
+            Remove(entry);
+        }
+
+        public void Remove(Entry entry)
+		{
             _entries.Remove(entry);
             OnChange?.Invoke();
             OnRemoved?.Invoke(entry);
@@ -71,11 +77,13 @@ namespace Application
 		{
             _entries.Clear();
             _entries.AddRange(data.Entries.Select(entry => new Entry { Name = entry.Name }));
+            OnEntriesSet?.Invoke();
         }
 
         void DataContainer<EntriesData>.SetDefault()
         {
             _entries.Clear();
+            OnEntriesSet?.Invoke();
         }
 	}
 }
