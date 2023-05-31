@@ -31,7 +31,8 @@ namespace Application
 
 			try
 			{
-				LoadData();
+				TData data = LoadData();
+				container.Set(data);
 			}
 			catch (Exception exception)
 			{
@@ -39,11 +40,10 @@ namespace Application
 			}
 		}
 
-		private void LoadData()
+		private TData LoadData()
 		{
 			string jsonString = File.ReadAllText(FilePath);
-			TData data = JsonUtility.FromJson<TData>(jsonString);
-			container.Set(data);
+			return JsonUtility.FromJson<TData>(jsonString);
 		}
 	}
 }
