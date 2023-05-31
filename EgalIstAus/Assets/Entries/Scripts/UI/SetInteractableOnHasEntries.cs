@@ -1,14 +1,12 @@
 using SBaier.DI;
-using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Application
 {
     public class SetInteractableOnHasEntries : MonoBehaviour, Injectable
     {
         [SerializeField]
-        private Button _button;
+        private InteractableSwitcher _interactableSwitcher;
 
 		private EntriesService _entriesService;
 		private ListsService _listsService;
@@ -34,7 +32,7 @@ namespace Application
 
 		private void UpdateInteractable()
 		{
-			_button.interactable = _entriesService.HasEntries;
+			_interactableSwitcher.SetInteracable(this, _entriesService.HasEntries);
 		}
 	}
 }
